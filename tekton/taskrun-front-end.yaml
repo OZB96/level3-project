@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: dockr-runner
+spec:
+  serviceAccountName: omar-docker-hub
+  taskRef:
+    name: dockr
+  params:
+  - name: IMAGE
+    value: "ozb96/front-end"
+  resources:
+    inputs:
+    - name: level3-project
+      resourceRef:
+        name: level3
