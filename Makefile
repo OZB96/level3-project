@@ -49,4 +49,4 @@ down:
 	docker network rm project
 test:
 	docker build -t user-simulator ./load-test/
-	docker run -it --network project user-simulator -d 60 -r 200 -c 2 -h edge-router	
+	docker run -it --network project user-simulator -H edge-router -r 0.5 -t 30s -u 20
