@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: carts-db
-        image: mongo
+        image: __IMAGE__
         ports:
         - name: mongo
           containerPort: 27017
