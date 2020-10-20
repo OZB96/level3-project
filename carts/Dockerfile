@@ -1,4 +1,4 @@
-FROM maven:3.2-jdk-8 as build
+FROM maven:3-jdk-11 as build
 
 WORKDIR /work
 
@@ -6,7 +6,7 @@ COPY . .
 
 RUN mvn clean package
 
-from java:openjdk-8-alpine
+from adoptopenjdk/openjdk11:alpine
 
 copy --from=build "/work/target/*.jar" /carts.jar
 

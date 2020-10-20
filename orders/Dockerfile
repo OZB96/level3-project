@@ -1,4 +1,4 @@
-FROM maven:3.2-jdk-8 as build
+FROM maven:3-jdk-11 as build
 
 WORKDIR /opt
 
@@ -6,12 +6,10 @@ COPY . .
 
 RUN mvn clean package
 
-FROM weaveworksdemos/msd-java:jre-latest
+FROM adoptopenjdk/openjdk11:alpine
 
 COPY --from=build "/opt/target/*.jar" ./app.jar
 
-RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
-
 USER ${SERVICE_USER}
 
-ENTRYPOINT ["/usr/local/bin/java.sh","-jar","./app.jar", "--port=80"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./app.jar", "--port=80"]
