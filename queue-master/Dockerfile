@@ -14,5 +14,5 @@ RUN chown -R ${SERVICE_USER}:${SERVICE_GROUP} /master-queue.jar
 
 USER ${SERVICE_USER}
 
-ENTRYPOINT ["/opt/java/openjdk/bin/java","-jar","/master-queue.jar", "--port=80"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","/master-queue.jar", "--port=80"]
 
