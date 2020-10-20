@@ -1,4 +1,4 @@
-FROM maven:3-jdk-11 as build
+FROM maven:3.2-jdk-8 as build
 WORKDIR /tmp
 
 copy src /tmp/src
@@ -6,7 +6,7 @@ copy pom.xml /tmp/
 
 run mvn clean package
 
-FROM adoptopenjdk/openjdk11:alpine
+FROM java:openjdk-8-alpine
 
 COPY --from=build /tmp/target/*.jar /master-queue.jar
 
