@@ -93,6 +93,7 @@
                     <excludes>
                         <exclude>**/IT*.java</exclude>
                     </excludes>
+		    <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
             <plugin>
