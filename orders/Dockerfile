@@ -10,6 +10,4 @@ FROM adoptopenjdk/openjdk11:alpine
 
 COPY --from=build "/opt/target/*.jar" ./app.jar
 
-USER ${SERVICE_USER}
-
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./app.jar", "--port=80"]

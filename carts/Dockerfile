@@ -12,6 +12,4 @@ copy --from=build "/work/target/*.jar" /carts.jar
 
 RUN chmod a+rx ./carts.jar
 
-USER ${SERVICE_USER}
-
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","/carts.jar", "--port=80"]
