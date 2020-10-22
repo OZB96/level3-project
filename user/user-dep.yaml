@@ -29,7 +29,6 @@ spec:
         env:
         - name: mongo
           value: user-db:27017
-        securityContext:
         livenessProbe:
           httpGet:
             path: /health
