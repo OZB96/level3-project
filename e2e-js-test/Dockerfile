@@ -20,4 +20,3 @@ WORKDIR /app
 COPY . .
 RUN npm init --yes
 RUN npm install
-ENTRYPOINT ["casperjs","test","*_test.js"]
