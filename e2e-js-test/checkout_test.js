@@ -73,7 +73,7 @@
         //console.log(cap);
         //console.log("DONE");
         test.fail("user was not taken to the orders page");
-      }, 3000);
+      }, 9000);
     });
 
     casper.run(function() {
