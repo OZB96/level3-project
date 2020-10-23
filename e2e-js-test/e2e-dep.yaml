@@ -6,7 +6,7 @@ metadata:
     name: e2e-test
   namespace: test
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       name: e2e-test
