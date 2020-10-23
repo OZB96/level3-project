@@ -6,7 +6,7 @@ RUN apk add --update --no-cache make git curl jq python3 && \
 RUN python3 -m ensurepip
 RUN pip3 install --no-cache --upgrade pip setuptools
 
-RUN npm install -g casperjs mocha jscodeshift mongodb
+RUN npm install -g casperjs mocha jscodeshift
 
 WORKDIR /tmp
 RUN curl -Ls https://github.com/dustinblackman/phantomized/releases/download/2.1.1/dockerized-phantomjs.tar.gz | tar xz &&\
@@ -18,4 +18,4 @@ RUN curl -Ls https://github.com/dustinblackman/phantomized/releases/download/2.1
 
 WORKDIR /app
 COPY . .
-RUN npm install
+RUN npm install mongodb
