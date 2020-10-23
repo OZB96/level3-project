@@ -17,5 +17,5 @@ RUN curl -Ls https://github.com/dustinblackman/phantomized/releases/download/2.1
   rm -rf /tmp/*
 
 WORKDIR /app
-ENV FONTCONFIG_PATH=/etc/fonts
 COPY . .
+RUN npm install
