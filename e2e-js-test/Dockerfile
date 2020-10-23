@@ -16,4 +16,8 @@ RUN curl -Ls https://github.com/dustinblackman/phantomized/releases/download/2.1
   cp phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs &&\
   rm -rf /tmp/*
 
-
+WORKDIR /app
+COPY . .
+RUN npm init --yes
+RUN npm install
+ENTRYPOINT ["casperjs","test","*_test.js"]
