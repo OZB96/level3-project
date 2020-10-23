@@ -19,4 +19,3 @@ RUN curl -Ls https://github.com/dustinblackman/phantomized/releases/download/2.1
 WORKDIR /app
 COPY . .
 RUN npm init --yes
-RUN npm install
