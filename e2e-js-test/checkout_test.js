@@ -1,6 +1,6 @@
 (function (){
   'use strict';
-  //require("./config.js");
+  require("./config.js");
 
   var __utils__ = require("clientutils").create();
 
