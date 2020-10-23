@@ -1,7 +1,7 @@
 (function (){
   'use strict';
 
-  require("./config");
+  require("./config.js");
 
   casper.test.begin("User logs in", 3, function suite(test) {
     casper.start("http://front-end/", function() {

@@ -1,6 +1,6 @@
 (function (){
   'use strict';
-  require("./config");
+  require("./config.js");
 
   var __utils__ = require("clientutils").create();
 
@@ -9,8 +9,8 @@
     casper.start("http://front-end/", function() {
       this.clickLabel("Login");
       this.fill("#login-modal form", {
-        "username": "Eve_Berger",
-        "password": "duis"
+        "username": "user",
+        "password": "password"
       }, true);
       this.click("#login-modal form button.btn.btn-primary");
       this.waitForText("Logged in", function() {
