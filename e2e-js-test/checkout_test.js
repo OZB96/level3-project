@@ -57,7 +57,7 @@
         });
       }, function() {
         test.pass("the checkout button is enabled");
-        this.clickLabel("Proceed to checkout");
+        this.click("button#orderButton");
       }, function() {
         test.fail("checkout button was not enabled");
       }, 3000);
