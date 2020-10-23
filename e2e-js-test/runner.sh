@@ -11,8 +11,6 @@ fi
 
 for test in $files
 do
-  npm init --yes
-  npm install
   node test/e2e/test_helper.js
   casperjs test $test
   ret=$?
