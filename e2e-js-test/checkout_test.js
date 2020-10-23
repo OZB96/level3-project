@@ -70,7 +70,7 @@
       }, function() {
         console.log("dumping page screenshot as PNG")
         var cap = casper.captureBase64("png");
-        console.log(cap);
+        //console.log(cap);
         console.log("DONE");
         test.fail("user was not taken to the orders page");
       }, 3000);
