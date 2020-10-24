@@ -6,7 +6,7 @@
 
   casper.test.begin("User buys some socks", 5, function(test) {
     // initial load and login
-    casper.start("http://front-end/")
+    casper.start("http://front-end/");
       casper.then(function(){
       this.clickLabel("Login");
       this.fill("#login-modal form", {
@@ -81,4 +81,4 @@
       test.done();
     });
   });
-}());e2e-test-5cc7c58fdb-nx9d2
+}());
