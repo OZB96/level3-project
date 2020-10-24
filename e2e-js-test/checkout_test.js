@@ -1,13 +1,12 @@
 (function (){
   'use strict';
-  require("./config.js");
+  require("./config");
 
   var __utils__ = require("clientutils").create();
 
-  casper.test.begin("User buys some socks", 5, function(test) {
+  casper.test.begin("User buys some socks", 1, function(test) {
     // initial load and login
-    casper.start("http://front-end/");
-      casper.then(function(){
+    casper.start("http://front-end:8080/", function() {
       this.clickLabel("Login");
       this.fill("#login-modal form", {
         "username": "user",
@@ -18,8 +17,8 @@
         test.comment("user logged in");
       }, function() {
         test.fail("login failed");
-      }, 3000);	
-      });
+      }, 3000);
+    });
 
     // TODO: Test that "Proceed to checkout" button is disabled when the cart is empty
 
@@ -69,10 +68,10 @@
       this.waitForText("My orders", function() {
         test.pass("user is taken to the orders page");
       }, function() {
-        //console.log("dumping page screenshot as PNG")
-        //var cap = casper.captureBase64("png");
-        //console.log(cap);
-        //console.log("DONE");
+       // console.log("dumping page screenshot as PNG")
+       // var cap = casper.captureBase64("png");
+       // console.log(cap);
+       // console.log("DONE");
         test.fail("user was not taken to the orders page");
       }, 3000);
     });
