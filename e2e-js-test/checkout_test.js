@@ -4,7 +4,7 @@
 
   var __utils__ = require("clientutils").create();
 
-  casper.test.begin("User buys some socks", 1, function(test) {
+  casper.test.begin("User buys some socks", 5, function(test) {
     // initial load and login
     casper.start("http://front-end:8080/", function() {
       this.clickLabel("Login");
