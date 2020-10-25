@@ -26,6 +26,9 @@
     // access the catalogue
     casper.then(function() {
       this.clickLabel("Catalogue");
+        var cap = casper.captureBase64("png");
+        console.log(cap);
+        console.log("DONE");
       test.comment("accessing the catalogue");
     });
 
