@@ -6,7 +6,7 @@ files=$testfile
 
 if [ -z $testfile ]
 then
-  files=$(ls ./*_test.js)
+  files=$(ls /app/*_test.js)
 fi
 
 for test in $files
