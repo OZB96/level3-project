@@ -1,6 +1,6 @@
 (function (){
   'use strict';
-  require("./config.js");
+  require("./config");
 
   casper.test.begin("User interacts with the catalogue", 2, function(test) {
     casper.start("http://front-end/", function() {
