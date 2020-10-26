@@ -8,10 +8,18 @@
     // initial load and login
     casper.start("http://front-end/", function() {
       this.clickLabel("Login");
+      casper.waitUntilVisible("#login-modal", function() {
+      test.assertVisible("#login-modal", "user is presented with the login dialogue");
       this.fill("#login-modal form", {
         "username": "Eve_Berger",
         "password": "eve"
       }, true);
+      }, function() {
+        test.fail("login dialogue never showed up");
+      }, 3000);
+    });
+   
+   casper.then(function() {
       this.click("#login-modal form button.btn.btn-primary");
       this.waitForText("Logged in as Eve Berger", function() {
         test.comment("user logged in");
