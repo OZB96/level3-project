@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: shipping-access
+spec:
+  podSelector:
+    matchLabels:
+      name: shipping
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              name: orders
+      ports:
+        - protocol: TCP
+          port: 80

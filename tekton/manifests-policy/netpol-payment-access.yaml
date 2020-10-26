@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: payment-access
+spec:
+  podSelector:
+    matchLabels:
+      name: payment
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              name: orders
+      ports:
+        - protocol: TCP
+          port: 80
