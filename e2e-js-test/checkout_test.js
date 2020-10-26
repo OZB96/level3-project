@@ -7,13 +7,14 @@
   casper.test.begin("User buys some socks", 5, function(test) {
     // initial load and login
     casper.start("http://front-end/", function() {
+      test.assertNotVisible("#login-modal", "user does not see the login dialogue");
       this.clickLabel("Login");
       casper.waitUntilVisible("#login-modal", function() {
       test.assertVisible("#login-modal", "user is presented with the login dialogue");
       this.fill("#login-modal form", {
         "username": "Eve_Berger",
         "password": "eve"
-      }, true);
+      }, false);
       }, function() {
         test.fail("login dialogue never showed up");
       }, 3000);
@@ -74,7 +75,7 @@
     // actually checkout
     casper.then(function() {
       this.click("button#orderButton");
-      this.waitForText("orders", function() {
+      this.waitForText("My orders", function() {
         test.pass("user is taken to the orders page");
       }, function() {
        // console.log("dumping page screenshot as PNG")
