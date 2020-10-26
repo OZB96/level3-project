@@ -66,7 +66,7 @@
     // actually checkout
     casper.then(function() {
       this.click("button#orderButton");
-      this.waitForText("My orders", function() {
+      this.waitForText("orders", function() {
         test.pass("user is taken to the orders page");
       }, function() {
        // console.log("dumping page screenshot as PNG")
