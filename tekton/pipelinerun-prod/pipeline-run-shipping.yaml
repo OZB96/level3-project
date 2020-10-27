@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: shipping-
+spec:
+  serviceAccountName: omar-docker-hub
+  params:
+  - name: IMAGE
+    value: "ozb96/shipping"
+  - name: pathToYamlFile
+    value: "./shipping/shipping-dep.yaml"
+  - name: pathToServiceFile
+    value: "./shipping/shipping-svc.yaml"
+  - name: namespace
+    value: "test"
+  - name: CONTEXT
+    value: "/workspace/level3-project/shipping"
+  - name: DOCKERFILE
+    value: "/workspace/level3-project/shipping/Dockerfile"
+  pipelineRef:
+    name: build-deploy-run
+  resources:
+  - name: level3-project
+    resourceRef:
+      name: level3
