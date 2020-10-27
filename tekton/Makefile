@@ -1,8 +1,14 @@
 .PHONY: roles tasks taskrun pipeline pipelineRun namespace testEnv up
-up: testEnv roles tasks pipeline pipelineRun logs
+up: testEnv secret-docker roles tasks pipeline pipelineRun checkStatus test
 
 testEnv:
 	kubectl config set-context --current --namespace=tekton-pipelines
+
+secret-docker: 		
+	kubectl create secret generic omar-docker-hub-creds \
+ 	--from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
+ 	--type=kubernetes.io/dockerconfigjson
+
 roles:
 	kubectl apply -f ./roles/ 
 
@@ -41,7 +47,13 @@ delete-ingress:
 	echo "Ingress: delete" | tee -a output.log
 	kubectl delete -n ingress -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/cloud/deploy.yaml | tee -a output.log 2>/dev/null | true
 
+checkStatus:
+	./run.sh
+
 test:
+	kubectl create secret generic omar-docker-hub-creds \
+        --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
+        --type=kubernetes.io/dockerconfigjson -n test
 	kubectl apply -f tests/roles -n test
 	kubectl create -f tests/task-run-test.yaml -n test
 	kubectl create -f tests/task-build-push.yaml -n test
