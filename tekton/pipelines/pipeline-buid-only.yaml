@@ -1,0 +1,30 @@
+zpiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: build-only
+spec:
+  resources:
+  - name: level3-project
+    type: git
+  params:
+  - name: IMAGE
+    type: string
+  - name: CONTEXT
+    type: string
+  - name: DOCKERFILE
+    type: string
+  tasks:
+  - name: build-push
+    taskRef:
+      name: build-push
+    params:
+    - name: IMAGE
+      value: "$(params.IMAGE)"
+    - name: CONTEXT
+      value: "$(params.CONTEXT)"
+    - name: DOCKERFILE
+      value: "$(params.DOCKERFILE)"
+    resources:
+      inputs:
+      - name: level3-project
+        resource: level3-project

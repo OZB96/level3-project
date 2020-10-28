@@ -19,10 +19,6 @@ spec:
     value: "/workspace/level3-project/queue-master/Dockerfile"
   - name: IMAGETEST
     value: "ozb96/e2e-test"
-  - name: CONTEXTTEST
-    value: "/workspace/level3-project/e2e-js-test"
-  - name: DOCKERFILETEST
-    value: "/workspace/level3-project/e2e-js-test/Dockerfile"
   - name: namespaceProd
     value: "production"
 
