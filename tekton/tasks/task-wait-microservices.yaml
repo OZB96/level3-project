@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: wait-microservices
+spec:
+  inputs:
+    resources:
+      - name: level3-project
+        type: git
+  steps:
+    - name: wait-for-other-pods
+      image: lachlanevenson/k8s-kubectl
+      command: ["/bin/sh"]
+      args:
+        - "/workspace/level3-project/tekton/run1.sh"

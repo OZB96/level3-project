@@ -21,6 +21,14 @@ spec:
     type: string
   - name: pathToIngressFile
     type: string
+  - name: namespaceProd
+    type: string
+  - name: IMAGETEST
+    type: string
+  - name: CONTEXTTEST
+    type: string
+  - name: DOCKERFILETEST
+    type: string
   tasks:
   - name: build-push
     taskRef:
@@ -56,3 +64,57 @@ spec:
       inputs:
       - name: level3-project
         resource: level3-project
+  - name: wait-microservices
+    taskRef:
+      name: wait-microservices
+    runAfter:
+      - run-image
+    resources:
+      inputs:
+      - name: level3-project
+        resource: level3-project
+  - name: build-push-test
+    taskRef:
+      name: build-push
+    params:
+    - name: IMAGE
+      value: "$(params.IMAGETEST)"
+    - name: CONTEXT
+      value: "$(params.CONTEXTTEST)"
+    - name: DOCKERFILE
+      value: "$(params.DOCKERFILETEST)"
+    resources:
+      inputs:
+      - name: level3-project
+        resource: level3-project
+  - name: run-test
+    taskRef:
+      name: run-test
+    runAfter:
+      - build-push-test
+    params:
+    - name: image
+      value: "$(params.IMAGETEST)"
+    resources:
+      inputs:
+      - name: level3-project
+        resource: level3-project
+  - name: deploy-to-prod
+    taskRef:
+      name: deploy-using-kubectl
+    runAfter:
+      - run-test
+    params:
+    - name: pathToYamlFile
+      value: "$(params.pathToYamlFile)"
+    - name: pathToServiceFile
+      value: "$(params.pathToServiceFile)"
+    - name: image
+      value: "$(params.IMAGE)"
+    - name: namespace
+      value: "$(params.namespaceProd)"
+    resources:
+      inputs:
+      - name: level3-project
+        resource: level3-project
+

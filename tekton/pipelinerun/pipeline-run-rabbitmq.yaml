@@ -13,6 +13,15 @@ spec:
     value: "./rabbitmq/rabbitmq-svc.yaml"
   - name: namespace
     value: "test"
+  - name: IMAGETEST
+    value: "ozb96/e2e-test"
+  - name: CONTEXTTEST
+    value: "/workspace/level3-project/e2e-js-test"
+  - name: DOCKERFILETEST
+    value: "/workspace/level3-project/e2e-js-test/Dockerfile"
+  - name: namespaceProd
+    value: "production"
+
   pipelineRef:
     name: only-run
   resources:

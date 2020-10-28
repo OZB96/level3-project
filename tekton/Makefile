@@ -1,5 +1,5 @@
 .PHONY: roles tasks taskrun pipeline pipelineRun namespace testEnv up
-up: testEnv secret-docker roles tasks pipeline pipelineRun checkStatus test
+up: testEnv secret-docker roles tasks pipeline pipelineRun
 
 testEnv:
 	kubectl config set-context --current --namespace=tekton-pipelines
@@ -11,7 +11,8 @@ secret-docker:
 
 roles:
 	kubectl apply -f ./roles/ 
-
+	kubectl apply -f ./roles/ -n test
+	kubectl apply -f ./roles/ -n production
 tasks:
 	kubectl create -f ./tasks/
 
