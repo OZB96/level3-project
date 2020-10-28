@@ -1,8 +1,8 @@
 .PHONY: roles tasks taskrun pipeline pipelineRun namespace testEnv up
-up: testEnv secret-docker roles tasks pipeline pipelineRun
+up: namespace testEnv secret-docker roles tasks pipeline pipelineRun
 
 testEnv:
-	kubectl config set-context --current --namespace=tekton-pipelines
+	kubectl config set-context --current --namespace=test
 
 secret-docker: 		
 	kubectl create secret generic omar-docker-hub-creds \
@@ -11,7 +11,6 @@ secret-docker:
 
 roles:
 	kubectl apply -f ./roles/ 
-	kubectl apply -f ./roles/ -n test
 	kubectl apply -f ./roles/ -n production
 tasks:
 	kubectl create -f ./tasks/
@@ -29,7 +28,7 @@ namespace:
 	kubectl create namespace test
 	kubectl create namespace production
 
-down: delete-namespaces delete-pipelines delete-tasks delete-secret delete-taskrunners delete-pipelinerunners
+down: delete-namespaces
 
 delete-namespaces:	
 	kubectl config set-context --current --namespace=default
@@ -37,16 +36,16 @@ delete-namespaces:
 	kubectl	delete namespace production
 
 delete-tasks:
-	tkn t delete $$(tkn t ls -n tekton-pipelines | cut -d ' ' -f 1 | tail -n +2) -n tekton-pipelines || true
+	tkn t delete $$(tkn t ls -n tekton-pipelines | cut -d ' ' -f 1 | tail -n +2) -n test || true
 
 delete-pipelines:
-	tkn p delete $$(tkn p ls -n tekton-pipelines | cut -d ' ' -f 1 | tail -n +2) -n tekton-pipelines || true
+	tkn p delete $$(tkn p ls -n tekton-pipelines | cut -d ' ' -f 1 | tail -n +2) -n test || true
 
 delete-taskrunners:
-	tkn tr delete $$(tkn tr ls -n tekton-pipelines | cut -d ' ' -f 1 | tail -n +2) -n tekton-pipelines || true
+	tkn tr delete $$(tkn tr ls -n tekton-pipelines | cut -d ' ' -f 1 | tail -n +2) -n test || true
 
 delete-pipelinerunners:
-	tkn pr delete $$(tkn pr ls -n tekton-pipelines | cut -d ' ' -f 1 | tail -n +2) -n tekton-pipelines || true
+	tkn pr delete $$(tkn pr ls -n tekton-pipelines | cut -d ' ' -f 1 | tail -n +2) -n test || true
 
 delete-secret:
 	kubectl delete secrets omar-docker-hub-creds -n tekton-pipelines
