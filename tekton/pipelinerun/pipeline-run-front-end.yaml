@@ -23,6 +23,8 @@ spec:
     value: "ozb96/e2e-test"
   - name: namespaceProd
     value: "production"
+  - name: pathToServiceFileTestPort
+    value: "./front-end/front-end-svc.yaml"
   pipelineRef:
     name: build-deploy-run-ingress
   resources:

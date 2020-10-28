@@ -25,6 +25,8 @@ spec:
     type: string
   - name: IMAGETEST
     type: string
+  - name: pathToServiceFileTestPort
+    type: string
   tasks:
   - name: build-push
     taskRef:
@@ -42,16 +44,14 @@ spec:
         resource: level3-project
   - name: run-image
     taskRef:
-      name: deploy-using-kubectl-with-ingress
+      name: deploy-using-kubectl
     runAfter:
       - build-push
     params:
     - name: pathToYamlFile
       value: "$(params.pathToYamlFile)"
     - name: pathToServiceFile
-      value: "$(params.pathToServiceFile)"
-    - name: pathToIngressFile
-      value: "$(params.pathToIngressFile)"
+      value: "$(params.pathToServiceFileTestPort)"
     - name: image
       value: "$(params.IMAGE)"
     - name: namespace
@@ -83,7 +83,7 @@ spec:
         resource: level3-project
   - name: deploy-to-prod
     taskRef:
-      name: deploy-using-kubectl
+      name: deploy-using-kubectl-with-ingress
     runAfter:
       - run-test
     params:
@@ -91,6 +91,8 @@ spec:
       value: "$(params.pathToYamlFile)"
     - name: pathToServiceFile
       value: "$(params.pathToServiceFile)"
+    - name: pathToIngressFile
+      value: "$(params.pathToIngressFile)"
     - name: image
       value: "$(params.IMAGE)"
     - name: namespace
