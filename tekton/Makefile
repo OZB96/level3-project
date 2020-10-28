@@ -37,10 +37,10 @@ delete-namespaces:
 	kubectl	delete namespace production
 
 delete-tasks:
-	tkn t delete $(tkn t ls -n tekton-pipelines | cut -d ' ' -f 1 | tail -n +2) -n tekton-pipelines
+	tkn t delete $$(tkn t ls -n tekton-pipelines | cut -d ' ' -f 1 | tail -n +2) -n tekton-pipelines
 
-delete-piplines:
-	tkn p delete $(tkn p ls -n tekton-pipelines | cut -d ' ' -f 1 | tail -n +2) -n tekton-pipelines
+delete-pipelines:
+	tkn p delete $$(tkn p ls -n tekton-pipelines | cut -d ' ' -f 1 | tail -n +2) -n tekton-pipelines
 
 delete-secret:
 	kubectl delete secrets omar-docker-hub-creds -n tekton-pipelines
