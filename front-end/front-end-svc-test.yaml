@@ -7,7 +7,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 8080
+  - port: 80
     targetPort: 8079
     nodePort: 30011
   selector:
