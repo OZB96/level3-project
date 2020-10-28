@@ -29,12 +29,21 @@ namespace:
 	kubectl create namespace test
 	kubectl create namespace production
 
-down: delete-namespaces
+down: delete-namespaces delete-pipelines delete-tasks delete-secret
 
 delete-namespaces:	
 	kubectl config set-context --current --namespace=default
 	kubectl delete namespace test
 	kubectl	delete namespace production
+
+delete-tasks:
+	tkn t delete $(tkn t ls -n tekton-pipelines | cut -d ' ' -f 1 | tail -n +2) -n tekton-pipelines
+
+delete-piplines:
+	tkn p delete $(tkn p ls -n tekton-pipelines | cut -d ' ' -f 1 | tail -n +2) -n tekton-pipelines
+
+delete-secret:
+	kubectl delete secrets omar-docker-hub-creds -n tekton-pipelines
 
 logs:
 	tkn pr logs --last

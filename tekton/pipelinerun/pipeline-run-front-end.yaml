@@ -24,7 +24,7 @@ spec:
   - name: namespaceProd
     value: "production"
   - name: pathToServiceFileTestPort
-    value: "./front-end/front-end-svc.yaml"
+    value: "./front-end/front-end-svc-test.yaml"
   pipelineRef:
     name: build-deploy-run-ingress
   resources:
