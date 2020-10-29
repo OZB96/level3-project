@@ -1,14 +1,14 @@
 apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
-  name: deploy-using-kubectl-test
+  name: deploy-using-kubectl-folder
 spec:
   inputs:
     resources:
       - name: level3-project
         type: git
     params:
-      - name: pathToYamlFile
+      - name: path
         description: The path to the yaml file to deploy within the git source
       - name: namespace
         description: The namespace To use
@@ -19,6 +19,6 @@ spec:
       args:
         - "apply"
         - "-f"
-        - "/workspace/level3-project/$(inputs.params.pathToYamlFile)"
+        - "/workspace/level3-project/$(inputs.params.path)"
         - "-n"
         - "$(inputs.params.namespace)"

@@ -27,6 +27,8 @@ spec:
     type: string
   - name: pathToServiceFileTestPort
     type: string
+  - name: yamlfolders
+    type: string
   tasks:
   - name: build-push
     taskRef:
@@ -83,16 +85,12 @@ spec:
         resource: level3-project
   - name: deploy-to-prod
     taskRef:
-      name: deploy-using-kubectl-with-ingress
+      name: deploy-using-kubectl-folder
     runAfter:
       - run-test
     params:
-    - name: pathToYamlFile
-      value: "$(params.pathToYamlFile)"
-    - name: pathToServiceFile
-      value: "$(params.pathToServiceFile)"
-    - name: pathToIngressFile
-      value: "$(params.pathToIngressFile)"
+    - name: path
+      value: "$(params.yamlfolders)"
     - name: namespace
       value: "$(params.namespaceProd)"
     resources:
