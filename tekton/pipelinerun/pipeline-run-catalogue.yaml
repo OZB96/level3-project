@@ -9,7 +9,7 @@ spec:
     value: "ozb96/catalogue"
   - name: serviceName
     value: "catalogue"
-  - name: serivceDBName
+  - name: serviceDBName
     value: "catalogue-db"
   - name: pathToYamlFile
     value: "./YAML/catalogue-dep.yaml"
