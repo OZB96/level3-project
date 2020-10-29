@@ -7,14 +7,14 @@ spec:
   params:
   - name: IMAGE
     value: "rabbitmq:3.6.8-management"
+  - name: serivceName
+    value: "rabbitmq"
   - name: pathToYamlFile
-    value: "./rabbitmq/rabbitmq-dep.yaml"
+    value: "./YAML/rabbitmq-dep.yaml"
   - name: pathToServiceFile
-    value: "./rabbitmq/rabbitmq-svc.yaml"
+    value: "./YAML/rabbitmq-svc.yaml"
   - name: namespace
     value: "test"
-  - name: IMAGETEST
-    value: "ozb96/e2e-test"
   - name: namespaceProd
     value: "production"
 

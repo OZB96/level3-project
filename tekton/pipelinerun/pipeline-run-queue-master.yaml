@@ -7,18 +7,18 @@ spec:
   params:
   - name: IMAGE
     value: "ozb96/queue-master"
+  - name: serivceName
+    value: "queue-master"
   - name: pathToYamlFile
-    value: "./queue-master/queue-master-dep.yaml"
+    value: "./YAML/queue-master-dep.yaml"
   - name: pathToServiceFile
-    value: "./queue-master/queue-master-svc.yaml"
+    value: "./YAML/queue-master-svc.yaml"
   - name: namespace
     value: "test"
   - name: CONTEXT
     value: "/workspace/level3-project/queue-master"
   - name: DOCKERFILE
     value: "/workspace/level3-project/queue-master/Dockerfile"
-  - name: IMAGETEST
-    value: "ozb96/e2e-test"
   - name: namespaceProd
     value: "production"
 

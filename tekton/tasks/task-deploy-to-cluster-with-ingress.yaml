@@ -10,11 +10,6 @@ spec:
     params:
       - name: pathToYamlFile
         description: The path to the yaml file to deploy within the git source
-      - name: image
-        description: image name
-      - name: imageTag
-        description: Tag of the images to be used.
-        default: "latest"
       - name: pathToServiceFile
         description: The yaml service file
       - name: namespace
@@ -22,14 +17,6 @@ spec:
       - name: pathToIngressFile
         description: the path for the ingress
   steps:
-    - name: update-yaml
-      image: alpine
-      command: ["sed"]
-      args:
-        - "-i"
-        - "-e"
-        - "s;__IMAGE__;$(inputs.params.image):$(inputs.params.imageTag);g"
-        - "/workspace/level3-project/$(inputs.params.pathToYamlFile)"
     - name: run-kubectl
       image: lachlanevenson/k8s-kubectl
       command: ["kubectl"]

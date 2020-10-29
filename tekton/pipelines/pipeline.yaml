@@ -9,6 +9,8 @@ spec:
   params:
   - name: IMAGE
     type: string
+  - name: serviceName
+    type: string
   - name: pathToYamlFile
     type: string
   - name: pathToServiceFile
@@ -20,8 +22,6 @@ spec:
   - name: DOCKERFILE
     type: string
   - name: namespaceProd
-    type: string
-  - name: IMAGETEST
     type: string
   tasks:
   - name: build-push
@@ -48,8 +48,6 @@ spec:
       value: "$(params.pathToYamlFile)"
     - name: pathToServiceFile
       value: "$(params.pathToServiceFile)"
-    - name: image
-      value: "$(params.IMAGE)"
     - name: namespace
       value: "$(params.namespace)"
     resources:
@@ -61,6 +59,11 @@ spec:
       name: wait-microservices
     runAfter:
       - run-image
+    params:
+    - name: namespace
+      value: "$(params.namespace)"
+    - name: serivceName
+      value: "$(params.serviceName)"
     resources:
       inputs:
       - name: level3-project
@@ -70,9 +73,6 @@ spec:
       name: run-test
     runAfter:
       - wait-microservices
-    params:
-    - name: image
-      value: "$(params.IMAGETEST)"
     resources:
       inputs:
       - name: level3-project
@@ -87,8 +87,6 @@ spec:
       value: "$(params.pathToYamlFile)"
     - name: pathToServiceFile
       value: "$(params.pathToServiceFile)"
-    - name: image
-      value: "$(params.IMAGE)"
     - name: namespace
       value: "$(params.namespaceProd)"
     resources:

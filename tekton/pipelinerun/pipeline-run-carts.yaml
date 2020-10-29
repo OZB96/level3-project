@@ -7,10 +7,14 @@ spec:
   params:
   - name: IMAGE
     value: "ozb96/carts"
+  - name: serviceName
+    value: "carts"
+  - name: serviceDBName
+    value: "carts-db"
   - name: pathToYamlFile
-    value: "./carts/carts-dep.yaml"
+    value: "./YAML/carts-dep.yaml"
   - name: pathToServiceFile
-    value: "./carts/carts-svc.yaml"
+    value: "./YAML/carts-svc.yaml"
   - name: namespace
     value: "test"
   - name: CONTEXT
@@ -20,11 +24,9 @@ spec:
   - name: DBIMAGE
     value: "mongo"
   - name: pathToDBYamlFile
-    value: "./carts/docker/carts-db/carts-db-dep.yaml"
+    value: "./YAML/carts-db-dep.yaml"
   - name: pathToDBServiceFile
-    value: "./carts/docker/carts-db/carts-db-svc.yaml"
-  - name: IMAGETEST
-    value: "ozb96/e2e-test"
+    value: "./YAML/carts-db-svc.yaml"
   - name: namespaceProd
     value: "production"
 

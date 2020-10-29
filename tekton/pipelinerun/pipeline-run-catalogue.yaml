@@ -7,10 +7,14 @@ spec:
   params:
   - name: IMAGE
     value: "ozb96/catalogue"
+  - name: serivceName
+    value: "catalogue"
+  - name: serivceDBName
+    value: "catalogue-db"
   - name: pathToYamlFile
-    value: "./catalogue/catalogue-dep.yaml"
+    value: "./YAML/catalogue-dep.yaml"
   - name: pathToServiceFile
-    value: "./catalogue/catalogue-svc.yaml"
+    value: "./YAML/catalogue-svc.yaml"
   - name: namespace
     value: "test"
   - name: CONTEXT
@@ -20,15 +24,13 @@ spec:
   - name: DBIMAGE
     value: "ozb96/catalogue-db"
   - name: pathToDBYamlFile
-    value: "./catalogue/docker/catalogue-db/catalogue-db-dep.yaml"
+    value: "./YAML/catalogue-db-dep.yaml"
   - name: pathToDBServiceFile
-    value: "./catalogue/docker/catalogue-db/catalogue-db-svc.yaml"
+    value: "./YAML/catalogue-db-svc.yaml"
   - name: DBCONTEXT
     value: "/workspace/level3-project/catalogue/docker/catalogue-db"
   - name: DBDOCKERFILE
     value: "/workspace/level3-project/catalogue/docker/catalogue-db/Dockerfile"
-  - name: IMAGETEST
-    value: "ozb96/e2e-test"
   - name: namespaceProd
     value: "production"
 

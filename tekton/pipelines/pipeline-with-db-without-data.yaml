@@ -9,6 +9,10 @@ spec:
   params:
   - name: IMAGE
     type: string
+  - name: serivceName
+    type: string
+  - name: serviceDBName
+    type: string
   - name: pathToYamlFile
     type: string
   - name: pathToServiceFile
@@ -27,8 +31,6 @@ spec:
     type: string
   - name: namespaceProd
     type: string
-  - name: IMAGETEST
-    type: string
   tasks:
   - name: run-db
     taskRef:
@@ -38,8 +40,6 @@ spec:
       value: "$(params.pathToDBYamlFile)"
     - name: pathToServiceFile
       value: "$(params.pathToDBServiceFile)"
-    - name: image
-      value: "$(params.DBIMAGE)"
     - name: namespace
       value: "$(params.namespace)"
     resources:
@@ -71,8 +71,6 @@ spec:
       value: "$(params.pathToYamlFile)"
     - name: pathToServiceFile
       value: "$(params.pathToServiceFile)"
-    - name: image
-      value: "$(params.IMAGE)"
     - name: namespace
       value: "$(params.namespace)"
     resources:
@@ -84,6 +82,25 @@ spec:
       name: wait-microservices
     runAfter:
       - run-image
+    params:
+    - name: namespace
+      value: "$(params.namespace)"
+    - name: serivceName
+      value: "$(params.serviceName)"
+    resources:
+      inputs:
+      - name: level3-project
+        resource: level3-project
+  - name: wait-microservices-db
+    taskRef:
+      name: wait-microservices
+    runAfter:
+      - run-image
+    params:
+    - name: namespace
+      value: "$(params.namespace)"
+    - name: serivceName
+      value: "$(params.serviceDBName)"
     resources:
       inputs:
       - name: level3-project
@@ -93,9 +110,7 @@ spec:
       name: run-test
     runAfter:
       - wait-microservices
-    params:
-    - name: image
-      value: "$(params.IMAGETEST)"
+      - wait-microservices-db
     resources:
       inputs:
       - name: level3-project
@@ -110,8 +125,6 @@ spec:
       value: "$(params.pathToYamlFile)"
     - name: pathToServiceFile
       value: "$(params.pathToServiceFile)"
-    - name: image
-      value: "$(params.IMAGE)"
     - name: namespace
       value: "$(params.namespaceProd)"
     resources:

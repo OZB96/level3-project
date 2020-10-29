@@ -7,10 +7,12 @@ spec:
   params:
   - name: IMAGE
     value: "ozb96/front-end"
+  - name: serivceName
+    value: "front-end"
   - name: pathToYamlFile
-    value: "./front-end/front-end-dep.yaml"
+    value: "./YAML/front-end-dep.yaml"
   - name: pathToServiceFile
-    value: "./front-end/front-end-svc.yaml"
+    value: "./YAML/front-end-svc.yaml"
   - name: namespace
     value: "test"
   - name: CONTEXT
@@ -18,9 +20,7 @@ spec:
   - name: DOCKERFILE
     value: "/workspace/level3-project/front-end/Dockerfile"
   - name: pathToIngressFile
-    value: "./front-end/front-end-ingress.yaml"
-  - name: IMAGETEST
-    value: "ozb96/e2e-test"
+    value: "./YAML/front-end-ingress.yaml"
   - name: namespaceProd
     value: "production"
   - name: pathToServiceFileTestPort

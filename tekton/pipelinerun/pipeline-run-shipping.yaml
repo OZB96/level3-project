@@ -7,18 +7,18 @@ spec:
   params:
   - name: IMAGE
     value: "ozb96/shipping"
+  - name: serivceName
+    value: "shipping"
   - name: pathToYamlFile
-    value: "./shipping/shipping-dep.yaml"
+    value: "./YAML/shipping-dep.yaml"
   - name: pathToServiceFile
-    value: "./shipping/shipping-svc.yaml"
+    value: "./YAML/shipping-svc.yaml"
   - name: namespace
     value: "test"
   - name: CONTEXT
     value: "/workspace/level3-project/shipping"
   - name: DOCKERFILE
     value: "/workspace/level3-project/shipping/Dockerfile"
-  - name: IMAGETEST
-    value: "ozb96/e2e-test"
   - name: namespaceProd
     value: "production"
 

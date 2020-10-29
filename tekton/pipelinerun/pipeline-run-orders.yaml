@@ -7,10 +7,14 @@ spec:
   params:
   - name: IMAGE
     value: "ozb96/orders"
+  - name: serivceName
+    value: "orders"
+  - name: serviceDBName
+    value: "orders-db"
   - name: pathToYamlFile
-    value: "./orders/orders-dep.yaml"
+    value: "./YAML/orders-dep.yaml"
   - name: pathToServiceFile
-    value: "./orders/orders-svc.yaml"
+    value: "./YAML/orders-svc.yaml"
   - name: namespace
     value: "test"
   - name: CONTEXT
@@ -20,11 +24,9 @@ spec:
   - name: DBIMAGE
     value: "mongo:3.4"
   - name: pathToDBYamlFile
-    value: "./orders/docker/orders-db/orders-db-dep.yaml"
+    value: "./YAML/orders-db-dep.yaml"
   - name: pathToDBServiceFile
-    value: "./orders/docker/orders-db/orders-db-svc.yaml"
-  - name: IMAGETEST
-    value: "ozb96/e2e-test"
+    value: "./YAML/orders-db-svc.yaml"
   - name: namespaceProd
     value: "production"
 

@@ -7,10 +7,14 @@ spec:
   params:
   - name: IMAGE
     value: "ozb96/user"
+  - name: serivceName
+    value: "user"
+  - name: serviceDBName
+    value: "user-db"
   - name: pathToYamlFile
-    value: "./user/user-dep.yaml"
+    value: "./YAML/user-dep.yaml"
   - name: pathToServiceFile
-    value: "./user/user-svc.yaml"
+    value: "./YAML/user-svc.yaml"
   - name: namespace
     value: "test"
   - name: CONTEXT
@@ -20,15 +24,13 @@ spec:
   - name: DBIMAGE
     value: "ozb96/user-db"
   - name: pathToDBYamlFile
-    value: "./user/docker/user-db/user-db-dep.yaml"
+    value: "./YAML/user-db-dep.yaml"
   - name: pathToDBServiceFile
-    value: "./user/docker/user-db/user-db-svc.yaml"
+    value: "./YAML/user-db-svc.yaml"
   - name: DBCONTEXT
     value: "/workspace/level3-project/user/docker/user-db"
   - name: DBDOCKERFILE
     value: "/workspace/level3-project/user/docker/user-db/Dockerfile"
-  - name: IMAGETEST
-    value: "ozb96/e2e-test"
   - name: namespaceProd
     value: "production"
 

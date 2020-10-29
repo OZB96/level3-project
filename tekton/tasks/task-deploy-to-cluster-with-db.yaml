@@ -10,11 +10,6 @@ spec:
     params:
       - name: pathToYamlFile
         description: The path to the yaml file to deploy within the git source
-      - name: image
-        description: image name
-      - name: imageTag
-        description: Tag of the images to be used.
-        default: "latest"
       - name: pathToServiceFile
         description: The yaml service file
       - name: namespace
@@ -23,20 +18,7 @@ spec:
         description: the yaml file for the database service
       - name: pathToDBServiceFile
         description:  the yaml file for the service of the db
-      - name: dbimage
-        description: the name of the db image
-      - name: dbimageTag
-        description: the name of the tag of that image
-        default: "latest"
   steps:
-    - name: update-yaml-for-db
-      image: alpine
-      command: ["sed"]
-      args:
-        - "-i"
-        - "-e"
-        - "s;__IMAGE__;$(inputs.params.dbimage):$(inputs.params.dbimageTag);g"
-        - "/workspace/level3-project/$(inputs.params.pathToDBYamlFile)"
     - name: run-kubectl-for-db
       image: lachlanevenson/k8s-kubectl
       command: ["kubectl"]
@@ -48,14 +30,6 @@ spec:
         - "/workspace/level3-project/$(inputs.params.pathToDBServiceFile)"
         - "-n"
         - "$(inputs.params.namespace)"
-    - name: update-yaml
-      image: alpine
-      command: ["sed"]
-      args:
-        - "-i"
-        - "-e"
-        - "s;__IMAGE__;$(inputs.params.image):$(inputs.params.imageTag);g"
-        - "/workspace/level3-project/$(inputs.params.pathToYamlFile)"
     - name: run-kubectl
       image: lachlanevenson/k8s-kubectl
       command: ["kubectl"]
