@@ -23,8 +23,6 @@ spec:
     type: string
   - name: DOCKERFILE
     type: string
-  - name: DBIMAGE
-    type: string
   - name: pathToDBYamlFile
     type: string
   - name: pathToDBServiceFile
