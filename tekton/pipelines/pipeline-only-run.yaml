@@ -17,6 +17,8 @@ spec:
     type: string
   - name: namespace
     type: string
+  - name: yamlfolders
+    type: string
   - name: namespaceProd
     type: string
   tasks:
@@ -59,14 +61,12 @@ spec:
         resource: level3-project
   - name: deploy-to-prod
     taskRef:
-      name: deploy-using-kubectl
+      name: deploy-using-kubectl-folder
     runAfter:
       - run-test
     params:
-    - name: pathToYamlFile
-      value: "$(params.pathToYamlFile)"
-    - name: pathToServiceFile
-      value: "$(params.pathToServiceFile)"
+    - name: path
+      value: "$(params.yamlfolders)"
     - name: namespace
       value: "$(params.namespaceProd)"
     resources:
