@@ -7,7 +7,7 @@ spec:
   params:
   - name: IMAGE
     value: "rabbitmq:3.6.8-management"
-  - name: serivceName
+  - name: serviceName
     value: "rabbitmq"
   - name: pathToYamlFile
     value: "./YAML/rabbitmq-dep.yaml"

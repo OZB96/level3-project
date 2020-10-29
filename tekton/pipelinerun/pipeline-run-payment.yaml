@@ -7,7 +7,7 @@ spec:
   params:
   - name: IMAGE
     value: "ozb96/payment"
-  - name: serivceName
+  - name: serviceName
     value: "payment"
   - name: pathToYamlFile
     value: "./YAML/payment-dep.yaml"

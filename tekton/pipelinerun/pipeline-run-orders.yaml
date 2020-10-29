@@ -7,7 +7,7 @@ spec:
   params:
   - name: IMAGE
     value: "ozb96/orders"
-  - name: serivceName
+  - name: serviceName
     value: "orders"
   - name: serviceDBName
     value: "orders-db"

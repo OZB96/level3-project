@@ -7,7 +7,7 @@ spec:
   params:
   - name: IMAGE
     value: "ozb96/user"
-  - name: serivceName
+  - name: serviceName
     value: "user"
   - name: serviceDBName
     value: "user-db"

@@ -7,7 +7,7 @@ spec:
   params:
   - name: IMAGE
     value: "ozb96/catalogue"
-  - name: serivceName
+  - name: serviceName
     value: "catalogue"
   - name: serivceDBName
     value: "catalogue-db"

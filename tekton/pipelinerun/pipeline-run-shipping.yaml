@@ -7,7 +7,7 @@ spec:
   params:
   - name: IMAGE
     value: "ozb96/shipping"
-  - name: serivceName
+  - name: serviceName
     value: "shipping"
   - name: pathToYamlFile
     value: "./YAML/shipping-dep.yaml"

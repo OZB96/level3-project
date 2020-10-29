@@ -7,7 +7,7 @@ spec:
   params:
   - name: IMAGE
     value: "ozb96/front-end"
-  - name: serivceName
+  - name: serviceName
     value: "front-end"
   - name: pathToYamlFile
     value: "./YAML/front-end-dep.yaml"
