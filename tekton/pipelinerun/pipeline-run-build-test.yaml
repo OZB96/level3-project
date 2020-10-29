@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  generateName: e2e-
+  generateName: build-e2e-
 spec:
   serviceAccountName: omar-docker-hub
   params:
