@@ -9,7 +9,7 @@ spec:
   params:
   - name: IMAGE
     type: string
-  - name: serivceName
+  - name: serviceName
     type: string
   - name: serviceDBName
     type: string
