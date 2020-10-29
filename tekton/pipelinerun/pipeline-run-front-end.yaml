@@ -21,6 +21,8 @@ spec:
     value: "/workspace/level3-project/front-end/Dockerfile"
   - name: pathToIngressFile
     value: "./YAML/front-end-ingress.yaml"
+  - name: yamlfolders
+    value:  "./YAML/"
   - name: namespaceProd
     value: "production"
   - name: pathToServiceFileTestPort

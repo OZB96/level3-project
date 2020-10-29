@@ -27,6 +27,8 @@ spec:
     value: "./YAML/carts-db-dep.yaml"
   - name: pathToDBServiceFile
     value: "./YAML/carts-db-svc.yaml"
+  - name: yamlfolders
+    value:  "./YAML/"
   - name: namespaceProd
     value: "production"
 

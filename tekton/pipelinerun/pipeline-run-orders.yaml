@@ -21,12 +21,12 @@ spec:
     value: "/workspace/level3-project/orders"
   - name: DOCKERFILE
     value: "/workspace/level3-project/orders/Dockerfile"
-  - name: DBIMAGE
-    value: "mongo:3.4"
   - name: pathToDBYamlFile
     value: "./YAML/orders-db-dep.yaml"
   - name: pathToDBServiceFile
     value: "./YAML/orders-db-svc.yaml"
+  - name: yamlfolders
+    value:  "./YAML/"
   - name: namespaceProd
     value: "production"
 

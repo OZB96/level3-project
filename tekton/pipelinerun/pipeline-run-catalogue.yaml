@@ -31,6 +31,8 @@ spec:
     value: "/workspace/level3-project/catalogue/docker/catalogue-db"
   - name: DBDOCKERFILE
     value: "/workspace/level3-project/catalogue/docker/catalogue-db/Dockerfile"
+  - name: yamlfolders
+    value:  "./YAML/"
   - name: namespaceProd
     value: "production"
 

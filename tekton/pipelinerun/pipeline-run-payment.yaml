@@ -19,6 +19,8 @@ spec:
     value: "/workspace/level3-project/payment"
   - name: DOCKERFILE
     value: "/workspace/level3-project/payment/Dockerfile"
+  - name: yamlfolders
+    value:  "./YAML/"
   - name: namespaceProd
     value: "production"
 

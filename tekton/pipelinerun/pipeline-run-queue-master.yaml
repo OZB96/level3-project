@@ -19,6 +19,8 @@ spec:
     value: "/workspace/level3-project/queue-master"
   - name: DOCKERFILE
     value: "/workspace/level3-project/queue-master/Dockerfile"
+  - name: yamlfolders
+    value:  "./YAML/"
   - name: namespaceProd
     value: "production"
 

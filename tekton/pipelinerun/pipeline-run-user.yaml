@@ -31,6 +31,8 @@ spec:
     value: "/workspace/level3-project/user/docker/user-db"
   - name: DBDOCKERFILE
     value: "/workspace/level3-project/user/docker/user-db/Dockerfile"
+  - name: yamlfolders
+    value:  "./YAML/"
   - name: namespaceProd
     value: "production"
 
