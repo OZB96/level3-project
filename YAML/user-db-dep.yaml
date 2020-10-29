@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: user-db
-        image: __IMAGE__
+        image: ozb96/user-db
 
         ports:
         - name: mongo

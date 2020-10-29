@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: user
-        image: __IMAGE__
+        image: ozb96/user
         resources:
           limits:
             cpu: 300m

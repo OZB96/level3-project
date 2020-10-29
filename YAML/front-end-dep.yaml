@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: front-end
-        image: __IMAGE__
+        image: ozb96/front-end
         resources:
           limits:
             cpu: 300m

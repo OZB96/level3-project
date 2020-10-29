@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: catalogue-db
-        image: __IMAGE__
+        image: ozb96/catalogue-db
         env:
           - name: MYSQL_ROOT_PASSWORD
             value: fake_password

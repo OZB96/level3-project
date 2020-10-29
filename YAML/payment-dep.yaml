@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: payment
-        image: __IMAGE__
+        image: ozb96/payment
         resources:
           limits:
             cpu: 100m

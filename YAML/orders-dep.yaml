@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: orders
-        image: __IMAGE__
+        image: ozb96/orders
         env:
          - name: ZIPKIN
            value: zipkin.jaeger.svc.cluster.local

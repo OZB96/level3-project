@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: queue-master
-        image: __IMAGE__
+        image: ozb96/queue-master
         env:
          - name: ZIPKIN
            value: zipkin.jaeger.svc.cluster.local
