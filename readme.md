@@ -37,7 +37,7 @@ Note: for Tekton pipelines to to work, docker needs to be already loged in, use 
 
 ## About the project folder
 each service has its own folder that contains its source code and its Dockerfile, in case the service requires a database, you can find the database dockerfile inside the path ./serviceName/docker/serviceName-db/Dockerfile<br/>
-The YAML folder contains all the deployment and the services yaml files to deploy the application to k8s cluster.
+[YAML](https://github.com/OZB96/level3-project/tree/master/YAML) folder contains all the deployment and the services yaml files to deploy the application to k8s cluster.
 
 ### Inside Tekton Folder
 both bash scripts run.sh and run1.sh are used to make the test waits until the all of the pods ready, and below are the important folder of the system.<br/>
