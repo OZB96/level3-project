@@ -8,7 +8,7 @@ Note: I have not worked every day thats why there are not that much of images. A
 
 # Day 2
 ## Start of the day
-![3](https://user-images.githubusercontent.com/32719776/97742871-ecf94180-1af5-11eb-8b4e-792210c6e7ac.png)
+![2](https://user-images.githubusercontent.com/32719776/97742868-ec60ab00-1af5-11eb-80dd-6b877ed40fd1.png)
 ## End of the day
 ![4](https://user-images.githubusercontent.com/32719776/97742874-ed91d800-1af5-11eb-9620-97a8d2c6d9a3.png)
 
