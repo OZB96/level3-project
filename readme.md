@@ -1,46 +1,36 @@
 # DevOps Bootcamp Level 3 Final Project
 
-## Capstone Project
+## About The Project
+The aim of the project is to build and deploy the sockshop [Weaveworks Shock Shop demo](https://github.com/microservices-demo).
 
-The aim of the level 3 project is to give you something to demonstrate to potential employers. You will use this as a showcase for the skills you have developed and the tools you have mastered.
+## The Project Steps:
+### Step 1
+Editing The Dockerfiles, so they become stand alone dockerfiles for each service, so it can build and run the service using only docker build command.
+### Step 2
+Creating The deplotment yaml files, so the project be ready to be deployed yo a k8s environment.
+### Step 3
+Creating Tekton tasks to build, push the image to the dockerhub, then deploy the application to a testing enviroment.
+### Step 4
+Creating an end to end test Task that tests the application.
+### Step 5
+Creating a task to deploy the application to a production environment.
+### Step 6
+Create a tekton pipeline that uses the created tasks to build, deploy to test, test, and deploy to production.
+### Step 7
+Create Tekton pipelineRuns for each service.
 
-## Objectives
-You are to demonstrate a near production-ready K8S platform hosting the [Weaveworks Shock Shop demo](https://github.com/microservices-demo). Your platform must build and deploy your fork of that project.
+## How To Run The Application:
+### Deploy The Application using Docker:
+In The main path Run the command `make up` to build and run the application.
+Run `make down` to stops and remove the application.
+`make build` to only build the application and `make run` to only run the application.
+#### Test The Application in Docker:
+Run `make test` in the main path to run the load-test, which is a test that will put heavy load on diffrent url paths of the appplication.
 
-## Method
-You will work alone, but you must track your tasks in trello and move them through a kanban process. You will capture am image of your trello board at the start and end of each day and add it to the file 'tasks.md' in the documentation folder.
+### Deploy the application to k8s Environment:
+in the main path of the project run `make deploy` to deploy the application to a k8s environment.
 
-### Help
-Of course, nobody is ever really alone. If you are stuck for too long, ask for help from your colleagues and your instructor -- you will not be turned down. We are building a community here. However, plagarism will be detected and disallowed.
-
-### Chaos
-Your work should be fully automatable at all times. The instructor will run chaos tools over his ec2 estate between 7am and 11pm every day. Be prepared, keep every change in git. If you want an exception to this, add a tag to your instance: calm=12:00:00pm for example. This will cause chaos to pause for you for 2 hours from the specified time. You can only do this once a day max.
-
-### Hours
-All work is to be done in KH's AWS estate. The estate is open from 6am to 12am, and any running machines will be culled immediately at 12am every night without fail, and new machines cannot be created until 6am the next morning. This is to ensure that those of you who don't need a lot of sleep do not have an unfair advantage over those that need more.
-
-If you finish work earlier than that, please bring down your estate.
-
-### Meetings
-There will be no zoom meetings during the project period.
-
-## Deliverables
-A single github repo containing all of your work. The root of the repo will have a readme containing directions on using the repo, and links to the other requried documents. You must have a documents folder containing a tasks.md file which hosts screenshots of your kanban board (see 'method') along with a dairy.md file where you must keep daily notes as to your progress and any blockers you have discovered and overcome.
-
-Your repo must be stand-alone and runnable in the sandbox using only the 'make up' command. A second command is allowed to start the build process 'make build'. Deployment to test and prod must be done automatically after a successful build.
-
-## Infra
-You will run your project on the sandbox in k3d -- the techniques you demonstrate on this infra are exactly the same as with a fully distributed kubernetes instance, but its faster and easier so this will suffice.
-
-Please start with an XLarge instance, and increase the size of it if only when you have memory or other performance issues.
-
-## Platform
-You will run whatever platform level components that you see fit. As a minimum, we expect to see Tekton as an automation controller, Vault for secrets, ELF for logging, and Prometheus for monitoring.
-
-## Namespaces
-You will deploy the app's microservices to 'test' and 'prod' namespaces. The ci/cd tools will be in a cicd namespace. The other platform components will be in appropriately named spaces. The k8s-sandbox is suitably configured for tooling, but doesn't have a 'test' or 'prod' namespace.
-
-## Schedule
-The project must be completed by 21st of October. You will present it on the 22nd and 23rd with 5 minute presentations demonstrating the working system.
-
-Deadline is midnight 21st
+### Deploy The Applcaiton Using Tekton CI-CD Pipelines to Two Environments, Tesing K8S Environment and Production K8S Environment:
+All you need to do is go inside tekton folder and run `make run`, note: tekton and nginx ingress need to be already installed on the running machine. In case you want to install them, first you need to create the namespaces for them and add the repos to do that run `make init`,and then to install tekton run `make install-cicd` or to install nginx ingress run `make install-ingress`.
+In case you want to deploy the application in k3d, all you have to do is run `make up` which will create the cluster and install the tools and then run all of the pipelines.
+Note: for Tekton pipelines to to work, docker needs to be already loged in, use `docker login -u username`, and then enter your password and thats it.
