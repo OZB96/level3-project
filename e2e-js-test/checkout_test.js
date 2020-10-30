@@ -46,7 +46,8 @@
     // go to the shopping cart
     casper.then(function() {
       test.assertTextDoesntExist("0 items in cart", "cart is updated");
-      this.clickLabel("item(s) in cart");
+      this.click('#numItemsInCart.hidden-sm');
+	this.clickLabel("item(s) in cart");
     });
 
     casper.then(function() {
