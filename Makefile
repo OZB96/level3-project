@@ -1,5 +1,7 @@
 up: build run
 
+deploy-k8s:
+	kubectl apply -f ./YAML
 
 build:
 	docker build -t front-end ./front-end/
