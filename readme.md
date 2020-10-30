@@ -36,16 +36,16 @@ In case you want to deploy the application in k3d, all you have to do is run `ma
 Note: for Tekton pipelines to to work, docker needs to be already loged in, use `docker login -u username`, and then enter your password and thats it.
 
 ## About the project folder
-each service has its own folder that contains its source code and its Dockerfile, in case the service requires a database, you can find the database dockerfile inside the path ./serviceName/docker/serviceName-db/Dockerfile
+each service has its own folder that contains its source code and its Dockerfile, in case the service requires a database, you can find the database dockerfile inside the path ./serviceName/docker/serviceName-db/Dockerfile<br/>
 The YAML folder contains all the deployment and the services yaml files to deploy the application to k8s cluster.
 
 ### Inside Tekton Folder
-both bash scripts run.sh and run1.sh are used to make the test waits until the all of the pods ready, and below are the important folder of the system.
-[tasks](https://github.com/OZB96/level3-project/tree/master/tekton/tasks), contains the Tekton task files.
-[Pipelines](https://github.com/OZB96/level3-project/tree/master/tekton/pipelines), contains the Tekton pipeline files.
-[Pipelinerun](https://github.com/OZB96/level3-project/tree/master/tekton/pipelinerun), contains the Tekton pipelinerun files.
-[roles](https://github.com/OZB96/level3-project/tree/master/tekton/roles), cintains the clusterRole to give the permission to tekton to be  able deploy.
-[montioring](https://github.com/OZB96/level3-project/tree/master/tekton/monitoring), contains the bash files for installing elf and grafana.
+both bash scripts run.sh and run1.sh are used to make the test waits until the all of the pods ready, and below are the important folder of the system.<br/>
+[tasks](https://github.com/OZB96/level3-project/tree/master/tekton/tasks), contains the Tekton task files.<br/>
+[Pipelines](https://github.com/OZB96/level3-project/tree/master/tekton/pipelines), contains the Tekton pipeline files.<br/>
+[Pipelinerun](https://github.com/OZB96/level3-project/tree/master/tekton/pipelinerun), contains the Tekton pipelinerun files.<br/>
+[roles](https://github.com/OZB96/level3-project/tree/master/tekton/roles), cintains the clusterRole to give the permission to tekton to be  able deploy.<br/>
+[montioring](https://github.com/OZB96/level3-project/tree/master/tekton/monitoring), contains the bash files for installing elf and grafana.<br/>
 
 Note: The Kanaban board and my notes during the project are below.
 [Kanaban Board](https://github.com/OZB96/level3-project/blob/master/docs/tasks.md).
