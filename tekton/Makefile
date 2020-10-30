@@ -70,9 +70,6 @@ delete-pipelinerunners:
 delete-secret:
 	kubectl delete secrets omar-docker-hub-creds -n tekton-pipelines
 
-logs:
-	tkn pr logs --last
-
 init: logs repos namespaces-cluster
 
 logs:
