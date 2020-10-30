@@ -92,6 +92,9 @@ cluster-up:
             --k3s-server-arg '--no-deploy=traefik' \
             --agents 3
 
+cluster-down:
+	k3d cluster delete labs
+
 repos:
 	helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 	helm repo add hashicorp https://helm.releases.hashicorp.com
