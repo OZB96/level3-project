@@ -34,3 +34,9 @@ in the main path of the project run `make deploy` to deploy the application to a
 All you need to do is go inside tekton folder and run `make run`, note: tekton and nginx ingress need to be already installed on the running machine. In case you want to install them, first you need to create the namespaces for them and add the repos to do that run `make init`,and then to install tekton run `make install-cicd` or to install nginx ingress run `make install-ingress`.
 In case you want to deploy the application in k3d, all you have to do is run `make up` which will create the cluster and install the tools and then run all of the pipelines.
 Note: for Tekton pipelines to to work, docker needs to be already loged in, use `docker login -u username`, and then enter your password and thats it.
+
+
+
+Note: The Kanaban board and my notes during the project are below.
+[Kanaban Board](https://github.com/OZB96/level3-project/blob/master/docs/tasks.md).
+[My notes](https://github.com/OZB96/level3-project/blob/master/docs/dairy.md).
