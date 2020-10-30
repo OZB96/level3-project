@@ -1,4 +1,4 @@
-.PHONY: roles tasks taskrun pipeline pipelineRun namespace testEnv up
+.PHONY: cluster-up init logging monitoring install-cicd install-ingress namespace testEnv secret-docker roles tasks pipeline pipelineRun
 up: cluster-up init logging monitoring install-cicd install-ingress namespace testEnv secret-docker roles tasks pipeline pipelineRun
 
 run: namespace testEnv secret-docker roles tasks pipeline pipelineRun
