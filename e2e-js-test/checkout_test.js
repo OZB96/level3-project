@@ -45,9 +45,12 @@
 
     // go to the shopping cart
     casper.then(function() {
-      test.assertTextDoesntExist("0 items in cart", "cart is updated");
-      this.click('#numItemsInCart.hidden-sm');
-	this.clickLabel("item(s) in cart");
+      this.waitForText("1 item(s) in cart", function() {
+        test.pass("cart is updated with one product");
+        this.clickLabel("1 item(s) in cart");
+      }, function() {
+        test.fail("cart was not updated");
+      }, 3000);
     });
 
     casper.then(function() {
@@ -88,3 +91,4 @@
     });
   });
 }());
+
